@@ -70,6 +70,12 @@ class SearchProduct {
         console.log(`=========================`)
         // Intrebam numele produsului
         rl.question(this.message.INPUT_NAME, (name) => {
+            if(name === "") {
+                rl.close();
+                this.init();
+                return false;
+            }
+
             let search = this.search(name);
 
             if(search.length) {
